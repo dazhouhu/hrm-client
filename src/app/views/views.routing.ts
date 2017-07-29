@@ -3,27 +3,22 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    component: FullLayoutComponent,
-    data: {
-      title: '主页'
-    },
-    children: [
-      {path: 'dashboard',loadChildren: './dashboard/dashboard.module#DashboardModule'},
-      { path: 'widgets',loadChildren: './widgets/widgets.module#WidgetsModule'}
-    ]
-  },
-  {
-    path: 'pages',
+    path: 'login',
     component: SimpleLayoutComponent,
-    data: {
-      title: 'Pages'
-    },
     children: [
       {
         path: '',
-        loadChildren: './pages/pages.module#PagesModule',
+        loadChildren: 'app/pages/login/login.module#LoginModule'
       }
+    ]
+  },
+  {
+    path: '',
+    component: FullLayoutComponent,
+    data: { title: '主页' },
+    children: [
+      { path: 'dashboard',loadChildren: './dashboard/dashboard.module#DashboardModule'},
+      { path: 'widgets',loadChildren: './widgets/widgets.module#WidgetsModule'}
     ]
   }
 ];
