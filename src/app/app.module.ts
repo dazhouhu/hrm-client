@@ -1,49 +1,42 @@
-import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgModule } from '@angular/core';
 
-/*
- * Platform and Environment providers/directives/pipes
- */
-import { routing } from './app.routing';
+import { HttpModule, Http } from '@angular/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-// App is our top level component
-import { App } from './app.component';
-import { AppState, InternalStateType,GlobalState } from './global.state';
+import { AppComponent } from './app.component';
 
-export type StoreType = {
-  state: InternalStateType,
-  restoreInputValues: () => void,
-  disposeOldHosts: () => void
-};
+import { CoreModule } from './core/core.module';
+import { LayoutModule } from './layout/layout.module';
+import { SharedModule } from './shared/shared.module';
+import { RoutesModule } from './routes/routes.module';
 
-/**
- * `AppModule` is the main entry point into Angular2's bootstraping process
- */
+export function createTranslateLoader(http: Http) {
+    return new TranslateHttpLoader(http, './assets/i18n', '.json');
+}
+
+
 @NgModule({
-  bootstrap: [App],
-  declarations: [
-    App
-  ],
-  imports: [ // import Angular's modules
-    BrowserModule,
-    HttpModule,
-    RouterModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgbModule.forRoot(),
-    routing
-  ],
-  providers: [
-    AppState,
-    GlobalState
-  ]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        CoreModule,
+        LayoutModule,
+        SharedModule.forRoot(),
+        RoutesModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [Http]
+            }
+        })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-
 export class AppModule {
-  constructor(public appState: AppState) {
-  }
 }
