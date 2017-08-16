@@ -1,5 +1,5 @@
 import { LayoutComponent } from '../layout/layout.component';
-
+//import { TestComponent } from '../test/test.component';
 export const routes = [
 
     {
@@ -7,7 +7,7 @@ export const routes = [
         component: LayoutComponent,
         children: [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', loadChildren: 'app/routes/home/home.module#HomeModule' }
+            { path: 'home', loadChildren: './home/home.module#HomeModule' },
         ]
     },
 

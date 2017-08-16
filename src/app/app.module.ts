@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { HttpModule, Http } from '@angular/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { HttpClientModule, HttpClient} from '@angular/common/http';
+import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 
@@ -12,10 +13,11 @@ import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 import { RoutesModule } from './routes/routes.module';
 
-export function createTranslateLoader(http: Http) {
-    return new TranslateHttpLoader(http, './assets/i18n', '.json');
-}
+import { TestModule } from './test/test.module';
 
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
     declarations: [
@@ -23,15 +25,18 @@ export function createTranslateLoader(http: Http) {
     ],
     imports: [
         BrowserModule,
+        HttpModule,
+        HttpClientModule,
         CoreModule,
         LayoutModule,
         SharedModule.forRoot(),
         RoutesModule,
+        TestModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
                 useFactory: (createTranslateLoader),
-                deps: [Http]
+                deps: [HttpClient]
             }
         })
     ],

@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+declare var $:any;
 
 import { SettingsService } from './core/settings/settings.service';
 

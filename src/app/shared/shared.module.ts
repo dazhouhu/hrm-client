@@ -3,26 +3,27 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from  "@ngx-translate/core";
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
-import {
-    NgbAccordionModule,
-    NgbAlertModule,
-    NgbButtonsModule,
-    NgbCarouselModule,
-    NgbCollapseModule,
-    NgbDatepickerModule,
-    NgbDropdownModule,
-    NgbModalModule,
-    NgbPaginationModule,
-    NgbPopoverModule,
-    NgbProgressbarModule,
-    NgbRatingModule,
-    NgbTabsetModule,
-    NgbTimepickerModule,
-    NgbTooltipModule,
-    NgbTypeaheadModule
-} from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
+import {
+    AccordionModule,
+    AlertModule,
+    ButtonsModule,
+    CarouselModule,
+    CollapseModule,
+    DatepickerModule,
+    BsDropdownModule,
+    ModalModule,
+    PaginationModule,
+    ProgressbarModule,
+    RatingModule,
+    SortableModule,
+    TabsModule,
+    TimepickerModule,
+    TooltipModule,
+    TypeaheadModule,
+    PopoverModule
+} from 'ngx-bootstrap'
 
 import { FlotDirective } from './directives/flot/flot.directive';
 import { SparklineDirective } from './directives/sparkline/sparkline.directive';
@@ -34,30 +35,30 @@ import { NowDirective } from './directives/now/now.directive';
 import { ScrollableDirective } from './directives/scrollable/scrollable.directive';
 import { JqcloudDirective } from './directives/jqcloud/jqcloud.directive';
 
-// https://angular.io/styleguide#!#04-10
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
         TranslateModule,
-        NgbAccordionModule.forRoot(),
-        NgbAlertModule.forRoot(),
-        NgbButtonsModule.forRoot(),
-        NgbCarouselModule.forRoot(),
-        NgbCollapseModule.forRoot(),
-        NgbDatepickerModule.forRoot(),
-        NgbDropdownModule.forRoot(),
-        NgbModalModule.forRoot(),
-        NgbPaginationModule.forRoot(),
-        NgbPopoverModule.forRoot(),
-        NgbProgressbarModule.forRoot(),
-        NgbRatingModule.forRoot(),
-        NgbTabsetModule.forRoot(),
-        NgbTimepickerModule.forRoot(),
-        NgbTooltipModule.forRoot(),
-        NgbTypeaheadModule.forRoot(),
-        ToastModule
+        AccordionModule.forRoot(),
+        AlertModule.forRoot(),
+        ButtonsModule.forRoot(),
+        CarouselModule.forRoot(),
+        CollapseModule.forRoot(),
+        DatepickerModule.forRoot(),
+        BsDropdownModule.forRoot(),
+        ModalModule.forRoot(),
+        PaginationModule.forRoot(),
+        ProgressbarModule.forRoot(),
+        RatingModule.forRoot(),
+        SortableModule.forRoot(),
+        TabsModule.forRoot(),
+        TimepickerModule.forRoot(),
+        TooltipModule.forRoot(),
+        TypeaheadModule.forRoot(),
+        PopoverModule.forRoot(),
+        ToastrModule
     ],
     providers: [
         ColorsService
@@ -78,23 +79,26 @@ import { JqcloudDirective } from './directives/jqcloud/jqcloud.directive';
         ReactiveFormsModule,
         TranslateModule,
         RouterModule,
-        NgbAccordionModule,
-        NgbAlertModule,
-        NgbButtonsModule,
-        NgbCarouselModule,
-        NgbCollapseModule,
-        NgbDatepickerModule,
-        NgbDropdownModule,
-        NgbModalModule,
-        NgbPaginationModule,
-        NgbPopoverModule,
-        NgbProgressbarModule,
-        NgbRatingModule,
-        NgbTabsetModule,
-        NgbTimepickerModule,
-        NgbTooltipModule,
-        NgbTypeaheadModule,
-        ToastModule,
+
+        AccordionModule,
+        AlertModule,
+        ButtonsModule,
+        CarouselModule,
+        CollapseModule,
+        DatepickerModule,
+        BsDropdownModule,
+        ModalModule,
+        PaginationModule,
+        ProgressbarModule,
+        RatingModule,
+        SortableModule,
+        TabsModule,
+        TimepickerModule,
+        TooltipModule,
+        TypeaheadModule,
+        PopoverModule,
+        ToastrModule,
+
         FlotDirective,
         SparklineDirective,
         EasypiechartDirective,
@@ -106,7 +110,7 @@ import { JqcloudDirective } from './directives/jqcloud/jqcloud.directive';
     ]
 })
 
-
+// https://github.com/ocombe/ng2-translate/issues/209
 export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
