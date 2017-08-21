@@ -1,3 +1,6 @@
+import './modernizr.js'; // 'npm run modernizr' to create this file
+
+/*
 import '../node_modules/jquery/dist/jquery.js';
 import '../node_modules/flot/jquery.flot.js';
 import '../node_modules/jquery.flot.tooltip/js/jquery.flot.tooltip.js';
@@ -36,3 +39,4 @@ import '../node_modules/codemirror/mode/css/css.js';//
 //import './modernizr.js'; // 'npm run modernizr' to create this file
 
 import './app/core/preloader/preloader.ts';
+*/
